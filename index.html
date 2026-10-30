@@ -394,14 +394,15 @@ function shell(){
     if(q.length<2){out.innerHTML="";return;}
     var qw=q.split(/\s+/);clearTimeout(window.__whoT);
     var by={};for(var i=1;i<=c.total;i++){var x=statusOf(i);if(x&&x.s==="p"&&x.n&&(function(nw){return qw.every(function(w){return nw.indexOf(w)>-1})})(strip(x.n).split(/\s+/))){(by[x.n]=by[x.n]||[]).push(String(i).padStart(pad,"0"));}}
-    var ks=Object.keys(by);if(ks.length){out.innerHTML=ks.map(function(k){return '<p><b>'+esc(k)+':</b> '+by[k].join(", ")+'</p>'}).join("");return;}
-    out.innerHTML="";window.__whoT=setTimeout(function(){
+    var ks=Object.keys(by),bh=ks.map(function(k){return '<p><b>'+esc(k)+':</b> '+by[k].join(", ")+'</p>'}).join("");out.innerHTML=bh;
+    window.__whoT=setTimeout(function(){
     var qq=q.replace(/\s+/g," "),H=(S.donations||[]).reduce(function(a,d){return a.concat(d.h||[])},[]);
     var nf='<p>Ainda não encontramos esse nome. Se você já pagou, ele aparece em até 48 horas.</p>';
     var wa=c.whatsapp?'<a href="https://wa.me/'+String(c.whatsapp).replace(/\D/g,'')+'" target="_blank" rel="noopener" style="color:var(--t-teal)">fale com a gente no WhatsApp</a>':'fale com a gente no WhatsApp';
     var don='<p>Encontramos seu PIX 💛 Como o valor não fechou em números de R$ 33, ele entrou como <b>doação</b>.<br><small style="font-size:13px">Mas, se quiser mudar e participar da rifa, '+wa+'.</small></p>';
+    if(ks.length){nf=bh;}
     if(!H.length||!(window.crypto&&crypto.subtle)){out.innerHTML=nf;return;}
-    crypto.subtle.digest("SHA-256",new TextEncoder().encode("davi:"+qq)).then(function(b){if(strip(document.getElementById("who").value).replace(/\s+/g," ")!==qq)return;var x=Array.from(new Uint8Array(b)).map(function(v){return v.toString(16).padStart(2,"0")}).join("").slice(0,16);out.innerHTML=H.indexOf(x)>-1?don:nf;}).catch(function(){out.innerHTML=nf;});
+    crypto.subtle.digest("SHA-256",new TextEncoder().encode("davi:"+qq)).then(function(b){if(strip(document.getElementById("who").value).replace(/\s+/g," ")!==qq)return;var x=Array.from(new Uint8Array(b)).map(function(v){return v.toString(16).padStart(2,"0")}).join("").slice(0,16);var ini=(S.donations||[]).filter(function(d){return (d.h||[]).indexOf(x)>-1}).map(function(d){return d.i}).filter(function(v,i,a){return v&&a.indexOf(v)===i});out.innerHTML=!ini.length?nf:(ks.length?bh+don.replace('Encontramos seu PIX','Também encontramos um PIX com as iniciais <b>'+esc(ini.join(', '))+'</b>'):don);}).catch(function(){out.innerHTML=nf;});
     },1200);});
   document.getElementById("qminus").addEventListener("click",function(){setQty(qty-1)});
   document.getElementById("qplus").addEventListener("click",function(){setQty(qty+1)});
