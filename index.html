@@ -69,6 +69,20 @@ h2 .em{font-size:.85em;margin-right:6px}
 .facts{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
 .facts li:nth-child(1),.facts li:nth-child(3){display:none}
 .facts{display:none}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.acc{display:grid;grid-template-columns:1fr auto;align-items:center;width:100%;margin-top:28px;padding:18px 22px;border:0;border-radius:22px;cursor:pointer;text-align:left;font:inherit;color:#fff;scroll-margin-top:16px;position:relative;z-index:2}
+.acc .acc-t{font-family:var(--hand,inherit);font-weight:800;font-size:22px;line-height:1.2}
+.acc small{grid-column:1;font-size:14px;font-weight:700;opacity:.92;margin-top:2px}
+.acc .chev{grid-column:2;grid-row:1 / span 2;font-size:20px;transition:transform .2s}
+.acc[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.acc[aria-expanded="true"] small{visibility:hidden}
+.acc-rifa{background:var(--t-coral,#E8546B);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.acc-doar{background:var(--teal,#4CC0C4);box-shadow:0 5px 0 #34A3A8}
+.acc:active{transform:translateY(3px);box-shadow:none}
+html:not(.o-rifa):not(.adm) main > .buy,html:not(.o-rifa):not(.adm) main > section[aria-labelledby="n-t"]{display:none!important}
+html:not(.o-doar):not(.adm) main > .pix{display:none!important}
+.findbox .find{margin-top:10px}
+
 .donnote{margin:0 0 14px;font-size:14.5px;line-height:1.4;color:var(--ink2)}
 .donnote b{color:var(--ink)}
 .donnote a{color:var(--t-teal);font-weight:800;text-decoration:underline;white-space:nowrap}
@@ -88,7 +102,7 @@ h2 .em{font-size:.85em;margin-right:6px}
 .ittx .nm small{font-size:13px}
 #z-left{margin-top:6px}
 .ittx .pr{margin:6px 0 0;font-family:var(--hand);font-weight:600;font-size:22px;color:var(--t-teal)}
-@media (min-width:980px){main{grid-template-areas:"hero hero" "goal buy" "device prize" "admin admin" "cart cart" "pix story" "upd upd"!important}main > .device{grid-area:device}main > .prize{grid-area:prize}.itimg{width:140px;height:140px}}
+@media (min-width:980px){main{grid-template-areas:"hero hero" "goal device" "prize find" "admin admin" "accr accr" "buy cart" "accd story" "pix story" "upd upd"!important}main > .findbox{grid-area:find}main > .acc-rifa{grid-area:accr}main > .acc-doar{grid-area:accd;align-self:start}main > .acc{margin-top:0}main > .device{grid-area:device}main > .prize{grid-area:prize}.itimg{width:140px;height:140px}}
 .facts li{display:grid;grid-template-columns:40px 1fr;align-items:center;gap:8px}
 .facts .ic{font-size:30px;line-height:1;text-align:center}
 .facts .k{font-weight:800;font-size:14px;letter-spacing:.02em;display:block}
@@ -385,8 +399,10 @@ function shell(){
     '<div class="itimg"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aparelho auditivo retroauricular"><defs><linearGradient id="apb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4EEE6"/><stop offset=".55" stop-color="#D9CFC2"/><stop offset="1" stop-color="#A99C8C"/></linearGradient><linearGradient id="aph" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#EDE6DC"/><stop offset="1" stop-color="#BFB3A4"/></linearGradient><radialGradient id="apg" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><ellipse cx="100" cy="182" rx="52" ry="7" fill="#33405C" opacity=".12"/><path d="M118 46 C 140 22, 176 30, 178 62 C 180 92, 160 112, 150 128" fill="none" stroke="url(#aph)" stroke-width="11" stroke-linecap="round"/><path d="M118 46 C 140 22, 176 30, 178 62 C 180 92, 160 112, 150 128" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" transform="translate(-2,-2)"/><circle cx="150" cy="130" r="7" fill="#C9BDAE"/><path d="M70 58 C 74 38, 104 30, 122 42 C 134 50, 132 66, 126 84 L 110 150 C 104 172, 74 176, 62 160 C 52 146, 54 120, 58 100 Z" fill="url(#apb)"/><path d="M70 58 C 74 38, 104 30, 122 42 C 134 50, 132 66, 126 84 L 110 150 C 104 172, 74 176, 62 160 C 52 146, 54 120, 58 100 Z" fill="url(#apg)"/><path d="M76 70 C 80 54, 100 48, 112 56" fill="none" stroke="#8C7F70" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/><rect x="64" y="96" width="9" height="34" rx="4.5" fill="#9E9182" transform="rotate(10 68 113)"/><circle cx="98" cy="58" r="3.2" fill="#8C7F70"/><circle cx="108" cy="62" r="3.2" fill="#8C7F70"/></svg></div><div class="ittx"><span class="k">🎧 PARA ONDE VAI O DINHEIRO</span><h2 id="d-t">O aparelho do Davi</h2><p class="nm">Phonak Sky L70-UP <small>(BTE Power)</small></p><p class="pr">R$ 17.580,00</p></div></div></section>'+
    '<section class="panel item prize" aria-labelledby="z-t"><div class="cardbg"></div><div class="in">'+
     '<div class="itimg"><svg viewBox="0 0 260 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Smart TV de 32 polegadas"><defs><linearGradient id="tvs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7CB8F2"/><stop offset=".5" stop-color="#B79BF5"/><stop offset="1" stop-color="#F7739E"/></linearGradient><linearGradient id="tvg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><ellipse cx="130" cy="180" rx="96" ry="6" fill="#33405C" opacity=".12"/><path d="M78 150 L 62 176 M 182 150 L 198 176" stroke="#2A3247" stroke-width="7" stroke-linecap="round"/><rect x="14" y="10" width="232" height="144" rx="12" fill="#2A3247"/><rect x="22" y="18" width="216" height="126" rx="6" fill="url(#tvs)"/><path d="M22 24 Q 22 18 28 18 L 170 18 L 90 144 L 28 144 Q 22 144 22 138 Z" fill="url(#tvg)"/><rect x="186" y="28" width="42" height="24" rx="12" fill="#fff" opacity=".92"/><text x="207" y="45" text-anchor="middle" font-family="Fredoka,Nunito,sans-serif" font-weight="700" font-size="15" fill="#D6336E">32"</text><text x="130" y="92" text-anchor="middle" font-family="Fredoka,Nunito,sans-serif" font-weight="700" font-size="26" fill="#fff">SMART TV</text><circle cx="130" cy="149" r="1.8" fill="#8A93A8"/></svg></div><div class="ittx"><span class="k">🎟️ PARTICIPE DA RIFA</span><h2 id="z-t">Smart TV LG 32"</h2><p class="nm" id="z-price"></p><p class="nm">Você pode participar da rifa ou fazer uma doação de qualquer valor.</p><p class="nm" id="z-left"></p></div></div></section>'+
+   '<section class="panel findbox" aria-labelledby="f-t"><div class="cardbg"></div><div class="in"><h2 id="f-t" style="font-size:22px;margin-bottom:4px">Já participou?</h2><p class="sub" style="margin:0 0 4px">Procure seus números pelo nome.</p><label class="find findme">🔎 Procurar meus números <input id="who" type="search" placeholder="digite seu nome" autocomplete="off" style="width:auto;flex:1"></label><div id="whores" class="whores" aria-live="polite"></div></div></section>'+
+   '<button type="button" class="acc acc-rifa" data-acc="rifa" aria-expanded="false"><span class="acc-t">🎟️ Quero participar da rifa</span><small>toque para abrir</small><span class="chev" aria-hidden="true">▼</span></button>'+
    '<section class="panel buy" aria-labelledby="b-t">'+wimg("w4","right:-60px;top:-62px;width:230px;transform:rotate(10deg)")+wimg("w2","left:-62px;bottom:-60px;width:230px;transform:rotate(-14deg)")+'<div class="cardbg"></div>'+ico(NOTE1,"coral","-14px","-24px",26,-14)+
-    '<div class="in"><h2 id="b-t"><span class="em">🎟️</span>Quero participar</h2>'+
+    '<div class="in"><h2 id="b-t" class="vh">Quero participar da rifa</h2>'+
     '<ol class="steps"><li><span>1</span>Escolha quantos números quer</li><li><span>2</span>Copie o código PIX e pague no app do banco</li><li><span>3</span>Seus números são sorteados automaticamente com o PIX</li></ol>'+
     '<div class="qty" role="group" aria-label="Quantidade de números"><button type="button" class="qbtn" id="qminus" aria-label="Menos um número">−</button><div class="qval"><b id="qn">1</b><small id="qlabel">número</small></div><button type="button" class="qbtn" id="qplus" aria-label="Mais um número">+</button></div>'+
     '<div class="qchips" id="qchips"></div>'+
@@ -398,11 +414,12 @@ function shell(){
     '<div class="legend"><span><i></i>Livre</span><span><i class="l-paid"></i>Vendido</span></div>'+
     '<div class="ranges" id="ranges" role="group" aria-label="Faixas de números"></div>'+
     '<div class="panel board">'+wimg("w5","right:-60px;top:-64px;width:230px;transform:rotate(-12deg)")+wimg("w7","left:-60px;bottom:-64px;width:240px")+'<div class="cardbg"></div><div class="in"><div class="grid" id="grid" role="group" aria-label="Números da rifa"></div></div><p class="updated" id="updated" style="position:relative;z-index:1;margin:14px 0 0;padding-right:24px;font-weight:700;color:var(--t-plum)"></p></div>'+
-    '<label class="find findme">🔎 Procurar meus números <input id="who" type="search" placeholder="digite seu nome" autocomplete="off" style="width:auto;flex:1"></label><div id="whores" class="whores" aria-live="polite"></div>'+
+    
     
    '</section>'+
-   '<section class="panel pix" aria-labelledby="p-t" style="margin-top:50px">'+wimg("w1","left:-56px;top:-60px;width:230px;transform:rotate(-8deg)")+wimg("w2","right:-58px;bottom:-62px;width:230px;transform:rotate(12deg)")+'<div class="cardbg"></div>'+ico(NOTE1,"teal","calc(100% - 44px)","-22px",28,12)+
-    '<div class="in"><h2 id="p-t" style="font-size:27px">💛 Prefere doar qualquer valor?</h2><p class="sub" style="margin:0 0 8px">Toda ajuda soma na meta do aparelho.</p><p class="donnote">Doações de qualquer valor não entram na rifa. Se quiser participar e concorrer à TV, <a href="#b-t">clique aqui ↑</a> e faça o PIX em <b>múltiplos de R$ 33</b> (33, 66, 99...). Seus números são sorteados automaticamente.</p><div id="pix"></div><div id="dons"></div></div></section>'+
+   '<button type="button" class="acc acc-doar" data-acc="doar" aria-expanded="false"><span class="acc-t">💛 Prefiro doar qualquer valor</span><small>toque para abrir</small><span class="chev" aria-hidden="true">▼</span></button>'+
+   '<section class="panel pix" aria-labelledby="p-t">'+wimg("w1","left:-56px;top:-60px;width:230px;transform:rotate(-8deg)")+wimg("w2","right:-58px;bottom:-62px;width:230px;transform:rotate(12deg)")+'<div class="cardbg"></div>'+ico(NOTE1,"teal","calc(100% - 44px)","-22px",28,12)+
+    '<div class="in"><h2 id="p-t" class="vh">Prefiro doar qualquer valor</h2><p class="sub" style="margin:0 0 8px">Toda ajuda soma na meta do aparelho.</p><p class="donnote">Doações de valores avulsos não entram como números da rifa. Se quiser participar e concorrer à TV, <a href="#rifa" data-open="rifa">clique aqui</a>.</p><div id="pix"></div><div id="dons"></div></div></section>'+
    '<section class="story" aria-labelledby="s-t">'+ico(NOTE2,"teal","calc(100% - 46px)","34px",38,8)+ico(SPLASH,"mustard","calc(100% - 70px)","20px",18,-20)+'<h2 id="s-t"><span class="em">🎧</span>Por que o Davi precisa disso</h2>'+
     '<p>O Davi tem múltiplas deficiências, e uma delas é a perda auditiva, que aumentou muito nos últimos anos até chegar à perda profunda. Ele foi encaminhado para a alta complexidade, mas essa fila pode levar muitos anos. Tem família que espera 5, 6, 7 anos ou mais na fila.</p>'+
     '<p>Enquanto isso, a perda auditiva do Davi continua avançando, cada vez pior, e o dia a dia fica mais difícil para ele. Por isso decidimos não esperar mais: com a ajuda de vocês, vamos comprar o aparelho agora.</p>'+
@@ -596,6 +613,7 @@ function renderAdminBar(){
 }
 
 function renderAll(){
+  document.documentElement.classList.toggle("adm",!!admin);
   renderGoal();renderGrid();renderDock();renderPix();renderBuy();renderAdminBar();
   var c=cfg(), sub=document.getElementById("n-sub");
   sub.textContent=admin?"Toque num número para marcar como reservado, pago ou livre.":"";
@@ -705,6 +723,7 @@ function copy(t,elId,okMsg){
 var tt;function toast(m){var t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("show")},2600);}
 
 shell();renderAll();
+document.addEventListener("click",function(e){var o=e.target.closest&&e.target.closest("[data-open]");var b=e.target.closest&&e.target.closest(".acc");var k=o?o.getAttribute("data-open"):(b?b.getAttribute("data-acc"):null);if(!k)return;if(o)e.preventDefault();var de=document.documentElement,cls="o-"+k,open=o?true:!de.classList.contains(cls);de.classList.remove("o-rifa","o-doar");if(open)de.classList.add(cls);document.querySelectorAll(".acc").forEach(function(x){x.setAttribute("aria-expanded",de.classList.contains("o-"+x.getAttribute("data-acc"))?"true":"false");});if(open){var t=document.querySelector(".acc-"+k);if(t)setTimeout(function(){t.scrollIntoView({behavior:"smooth",block:"start"});},30);}});
 (function(){var sc=document.querySelector('section[aria-labelledby="n-t"] .board .in');if(!sc)return;try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){}var dir=1,stop=false,last=0,pause=0,pos=0;function stopIt(){stop=true;}['pointerdown','touchstart','wheel','keydown'].forEach(function(ev){sc.addEventListener(ev,stopIt,{passive:true});});function step(t){if(stop||admin)return;if(!last)last=t;var dt=Math.min(t-last,50);last=t;var max=sc.scrollWidth-sc.clientWidth;if(max>0){if(pause>0){pause-=dt;}else{pos+=dir*dt*0.06;if(pos>=max){pos=max;dir=-1;pause=1500;}else if(pos<=0){pos=0;dir=1;pause=1500;}sc.scrollLeft=pos;}}requestAnimationFrame(step);}setTimeout(function(){requestAnimationFrame(step);},1500);})();
 
 if(window.claude&&window.claude.use){
