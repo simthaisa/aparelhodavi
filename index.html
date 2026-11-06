@@ -526,7 +526,7 @@ function renderDock(){
 function renderPix(){
   var c=cfg(), el=document.getElementById("pix");
   if(!c.pix){el.innerHTML='<p class="holder">🔑 A chave PIX aparece aqui em breve.</p>';return;}
-  el.innerHTML='<p class="holder" style="margin:6px 0 0">🔑 <b>Chave PIX</b></p><div class="pixrow"><div class="pixkey" id="pixkey">'+esc(c.pix)+'</div><button class="btn" id="copy">Copiar chave</button></div>'+(c.holder?'<p class="holder">👤 <b>Titular:</b> '+esc(c.holder)+'</p>':'');
+  el.innerHTML='<p class="holder" style="margin:6px 0 0">🔑 <b>Chave PIX</b></p><div class="pixrow"><div class="pixkey" id="pixkey">'+esc(c.pix)+'</div><button class="btn" id="copy">Copiar chave PIX</button></div>'+(c.holder?'<p class="holder">👤 <b>Titular:</b> '+esc(c.holder)+'</p>':'');
   document.getElementById("copy").addEventListener("click",function(){copy(c.pix)});
 }
 
