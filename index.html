@@ -65,6 +65,7 @@ h2 .em{font-size:.85em;margin-right:6px}
 .bar{height:28px;border-radius:14px}.bar span{border-radius:14px}
 .pctl{position:absolute;top:50%;transform:translateY(-50%);font-weight:800;font-size:14px;line-height:1;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.18)}
 .pctl.out{color:var(--t-teal);text-shadow:none}
+.pctr{position:absolute;top:50%;right:0;transform:translateY(-50%);text-align:center;font-weight:800;font-size:14px;line-height:1;color:#D6336E}
 .goalrow b{color:var(--ink)}
 .facts{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
 .facts li:nth-child(1),.facts li:nth-child(3){display:none}
@@ -465,7 +466,7 @@ function renderGoal(){
   var left=Math.max(0,c.goal-raised), nums=Math.ceil(left/c.price);
   document.getElementById("goal").innerHTML=
    '<div class="amount">'+brl(raised)+'</div>'+
-   '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(pct)+'" aria-label="Progresso da meta"><span style="width:'+Math.max(pct,pct>0?3:0).toFixed(1)+'%"></span><b class="pctl'+(pct<14?' out':'')+'" style="'+(pct<14?'left:calc('+Math.max(pct,3).toFixed(1)+'% + 8px)':'right:calc('+(100-pct).toFixed(1)+'% + 10px)')+'">'+Math.floor(pct)+'%</b></div>'+
+   '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(pct)+'" aria-label="Progresso da meta"><span style="width:'+Math.max(pct,pct>0?3:0).toFixed(1)+'%"></span><b class="pctl'+(pct<14?' out':'')+'" style="'+(pct<14?'left:calc('+Math.max(pct,3).toFixed(1)+'% + 8px)':'right:calc('+(100-pct).toFixed(1)+'% + 10px)')+'">'+Math.floor(pct)+'%</b>'+(pct>=14&&pct<88?'<b class="pctr" style="left:'+pct.toFixed(1)+'%">faltam '+(100-Math.floor(pct))+'%</b>':'')+'</div>'+
    '<div class="goalrow">'+(left>0?'Faltam <b>'+brl(left)+'</b> de '+brl(c.goal)+'.':'<b>Meta alcançada! Obrigada! 🎉</b>')+'</div>';
   var zl=document.getElementById("z-left");if(zl){var rest=c.total-k.paid;zl.innerHTML=rest>0?'Restam <b>'+rest+' números</b>. O sorteio acontece assim que todos forem vendidos.':'Todos os números foram vendidos! 🎉';}
   renderDons();
